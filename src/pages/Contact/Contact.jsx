@@ -1,3 +1,13 @@
+import { Header, Footer } from '../../components';
+
 export function Contact() {
-  return <div>Contact</div>;
+  return (
+    <>
+      <Header />
+      <main>
+        <div>Contact</div>
+      </main>
+      <Footer />
+    </>
+  );
 }

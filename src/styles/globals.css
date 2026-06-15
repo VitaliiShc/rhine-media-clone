@@ -1,0 +1,54 @@
+:root {
+  --color-bg: #150e00;
+  --color-bg-card: #101826;
+  --color-text: #edf0fa;
+  --color-text-muted: #8892ae;
+  --color-text-dim: #4e5770;
+  --color-gold: #c9973b;
+  --color-gold-12: rgba(201, 151, 59, 0.12);
+  --color-gold-28: rgba(201, 151, 59, 0.28);
+  --color-gold-14: rgba(201, 151, 59, 0.14);
+  --color-white-04: rgba(255, 255, 255, 0.04);
+  --color-white-08: rgba(255, 255, 255, 0.08);
+
+  --font-heading: 'Manrope', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  --fs-h1: 5rem;
+  --fs-h2: 2.75rem;
+  --fs-h3: 1.75rem;
+  --fs-nav: 1.6rem;
+  --fs-body-lg: 1.15rem;
+  --fs-body: 1rem;
+  --fs-btn: 0.875rem;
+  --fs-caption: 0.85rem;
+  --fs-badge: 0.72rem;
+
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  --radius-pill: 50px;
+  --radius-cta: 28px;
+  --radius-card: 20px;
+  --radius-card-sm: 14px;
+  --radius-social: 8px;
+  --radius-badge: 5px;
+
+  --border-subtle: 1px solid rgba(255, 255, 255, 0.04);
+  --border-subtle-8: 1px solid rgba(255, 255, 255, 0.08);
+  --border-gold: 1px solid rgba(201, 151, 59, 0.28);
+  --border-gold-sm: 1px solid rgba(201, 151, 59, 0.14);
+
+  --shadow-hover: rgba(62, 114, 236, 0.14) 0px 14px 36px;
+  --transition: 0.25s ease;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+}
