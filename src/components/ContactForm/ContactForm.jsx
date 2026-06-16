@@ -23,8 +23,11 @@ const BUDGETS = [
   { value: '100k+', label: '$100,000+' },
 ];
 
+const REQUIRED_TEXT_FIELDS = ['fname', 'lname', 'email', 'vertical', 'message'];
+
 export function ContactForm() {
   const [sent, setSent] = useState(false);
+  const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
     fname: '', lname: '', email: '', company: '',
     telegram: '', vertical: '', budget: '', message: '', consent: false,
@@ -33,10 +36,20 @@ export function ContactForm() {
   function handleFieldChange(evt) {
     const { name, value, type, checked } = evt.target;
     setForm(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: false }));
   }
 
   function handleFormSubmit(evt) {
     evt.preventDefault();
+    const newErrors = {};
+    REQUIRED_TEXT_FIELDS.forEach(field => {
+      if (!form[field].trim()) newErrors[field] = true;
+    });
+    if (!form.consent) newErrors.consent = true;
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
     setSent(true);
   }
 
@@ -57,25 +70,23 @@ export function ContactForm() {
         <label className={styles.field}>
           <span className={styles.label}>First Name *</span>
           <input
-            className={styles.input}
+            className={clsx(styles.input, errors.fname && styles.inputError)}
             type="text"
             name="fname"
             value={form.fname}
             onChange={handleFieldChange}
             placeholder="John"
-            required
           />
         </label>
         <label className={styles.field}>
           <span className={styles.label}>Last Name *</span>
           <input
-            className={styles.input}
+            className={clsx(styles.input, errors.lname && styles.inputError)}
             type="text"
             name="lname"
             value={form.lname}
             onChange={handleFieldChange}
             placeholder="Smith"
-            required
           />
         </label>
       </div>
@@ -83,13 +94,12 @@ export function ContactForm() {
       <label className={styles.field}>
         <span className={styles.label}>Email Address *</span>
         <input
-          className={styles.input}
+          className={clsx(styles.input, errors.email && styles.inputError)}
           type="email"
           name="email"
           value={form.email}
           onChange={handleFieldChange}
           placeholder="john@company.com"
-          required
         />
       </label>
 
@@ -120,11 +130,10 @@ export function ContactForm() {
       <label className={styles.field}>
         <span className={styles.label}>Vertical / Niche *</span>
         <select
-          className={clsx(styles.input, styles.select)}
+          className={clsx(styles.input, styles.select, errors.vertical && styles.inputError)}
           name="vertical"
           value={form.vertical}
           onChange={handleFieldChange}
-          required
         >
           <option value="" disabled>Select a vertical…</option>
           {VERTICALS.map(({ value, label }) => (
@@ -151,27 +160,25 @@ export function ContactForm() {
       <label className={styles.field}>
         <span className={styles.label}>Message *</span>
         <textarea
-          className={clsx(styles.input, styles.textarea)}
+          className={clsx(styles.input, styles.textarea, errors.message && styles.inputError)}
           name="message"
           value={form.message}
           onChange={handleFieldChange}
           placeholder="Tell us about your offer, goals, GEOs and any other details that will help us understand your needs…"
           rows={5}
-          required
         />
       </label>
 
       <div className={styles.consent}>
         <input
-          className={styles.consentChk}
+          className={clsx(styles.consentChk, errors.consent && styles.consentChkError)}
           type="checkbox"
           id="consent"
           name="consent"
           checked={form.consent}
           onChange={handleFieldChange}
-          required
         />
-        <label className={styles.consentLabel} htmlFor="consent">
+        <label className={clsx(styles.consentLabel, errors.consent && styles.consentLabelError)} htmlFor="consent">
           I agree to the{' '}
           <Link to="/privacy-policy" className={styles.consentLink}>Privacy Policy</Link>
           {' '}and{' '}

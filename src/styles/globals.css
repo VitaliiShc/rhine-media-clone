@@ -23,6 +23,9 @@
   --color-blue-lt: #6090ff;
   --color-blue-dim: rgba(62, 114, 236, 0.12);
 
+  /* Error */
+  --color-error: #e87060;
+
   /* Borders */
   --border-subtle: rgba(255, 255, 255, 0.04);
   --border-subtle-8: rgba(255, 255, 255, 0.08);

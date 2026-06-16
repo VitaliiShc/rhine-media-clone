@@ -27,7 +27,6 @@
   font-weight: var(--fw-semibold);
   color: var(--color-text-muted);
   letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .input {
@@ -40,24 +39,38 @@
   font-size: 0.9rem;
   width: 100%;
   outline: none;
-  transition: border-color var(--transition);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
 .input::placeholder {
   color: var(--color-text-dim);
 }
 
+.input:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
 .input:focus {
-  border-color: var(--color-gold-border);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201, 151, 59, 0.1);
+}
+
+.inputError {
+  border-color: var(--color-error);
+}
+
+.inputError:hover {
+  border-color: var(--color-error);
 }
 
 .select {
   appearance: none;
-  background-image: url('../../assets/icons/chevron-down.svg');
-  background-repeat: no-repeat;
-  background-position: right 16px center;
-  padding-right: 42px;
-  cursor: pointer;
+}
+
+.consentLabelError {
+  color: var(--color-error);
 }
 
 .textarea {
@@ -105,11 +118,47 @@
 }
 
 .consentChk {
-  width: auto;
+  width: 30px;
+  height: 30px;
   margin-top: 3px;
   flex-shrink: 0;
-  accent-color: var(--color-gold);
+  background: var(--color-bg-2);
+  border: 1px solid var(--border-subtle-8);
+  border-radius: var(--radius-s);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
+  transition:
+    border-color var(--transition),
+    background var(--transition),
+    box-shadow var(--transition);
+}
+
+.consentChk:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.consentChk:checked {
+  background: var(--color-gold-dim);
+  border-color: var(--color-gold-border);
+  background-image: url('../../assets/icons/checkmark.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 10px;
+}
+
+.consentChk:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(201, 151, 59, 0.1);
+}
+
+.consentChkError {
+  border-color: var(--color-error);
+}
+
+.consentChkError:hover {
+  border-color: var(--color-error);
 }
 
 .consentLabel {
@@ -117,7 +166,6 @@
   color: var(--color-text-muted);
   font-weight: var(--fw-regular);
   line-height: var(--lh-relaxed);
-  cursor: pointer;
 }
 
 .consentLink {

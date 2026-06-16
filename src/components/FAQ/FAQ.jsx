@@ -51,18 +51,18 @@ export function FAQ() {
           <div
             key={q}
             className={clsx(styles.faqItem, openIdx === idx && styles.faqItemOpen)}
-            data-a="up"
-            data-d={String(idx + 1)}
           >
-            <button
-              className={styles.faqQ}
-              onClick={() => handleToggle(idx)}
-              aria-expanded={openIdx === idx}
-            >
-              {q}
-              <span className={styles.faqArrow}>▾</span>
-            </button>
-            <div className={styles.faqA}>{a}</div>
+            <div data-a="up" data-d={String(idx + 1)}>
+              <button
+                className={styles.faqQ}
+                onClick={() => handleToggle(idx)}
+                aria-expanded={openIdx === idx}
+              >
+                {q}
+                <span className={styles.faqArrow}>▾</span>
+              </button>
+              <div className={styles.faqA}>{a}</div>
+            </div>
           </div>
         ))}
       </div>
