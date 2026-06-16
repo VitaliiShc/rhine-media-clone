@@ -4,18 +4,18 @@ A pixel-faithful clone of [rhine-media.com](https://rhine-media.com) — a perfo
 
 ## Live Demo
 
-> [rhine-media-clone.vercel.app](https://rhine-media-clone.vercel.app) — deployed on Vercel
+> [https://vitalishc-rhine-media-clone.vercel.app/](https://vitalishc-rhine-media-clone.vercel.app/) — deployed on Vercel
 
 ## Stack
 
-| Layer | Technology |
-| --- | --- |
-| UI | React 19 |
-| Bundler | Vite 8 |
-| Routing | React Router DOM 7 |
-| Styling | CSS Modules + global utilities |
-| Class composition | clsx 2 |
-| Deployment | Vercel |
+| Layer             | Technology                     |
+| ----------------- | ------------------------------ |
+| UI                | React 19                       |
+| Bundler           | Vite 8                         |
+| Routing           | React Router DOM 7             |
+| Styling           | CSS Modules + global utilities |
+| Class composition | clsx 2                         |
+| Deployment        | Vercel                         |
 
 No UI library dependencies — all components hand-crafted.
 
@@ -31,12 +31,12 @@ No UI library dependencies — all components hand-crafted.
 
 ## Pages
 
-| Route | Component | Description |
-| --- | --- | --- |
-| `/` | `Home` | Hero, Niches, Channels, Partners, Benefits, FAQ, CTA |
-| `/contact` | `Contact` | Contact hero + two-column form layout |
-| `/terms` | `Terms` | Terms of Service |
-| `/privacy-policy` | `Privacy` | Privacy Policy |
+| Route             | Component | Description                                          |
+| ----------------- | --------- | ---------------------------------------------------- |
+| `/`               | `Home`    | Hero, Niches, Channels, Partners, Benefits, FAQ, CTA |
+| `/contact`        | `Contact` | Contact hero + two-column form layout                |
+| `/terms`          | `Terms`   | Terms of Service                                     |
+| `/privacy-policy` | `Privacy` | Privacy Policy                                       |
 
 ## Project Structure
 
@@ -80,18 +80,18 @@ src/
 
 All design tokens are CSS custom properties defined in `src/styles/globals.css`.
 
-| Group | Key variables |
-| --- | --- |
-| Backgrounds | `--color-bg`, `--color-bg-1`, `--color-bg-2`, `--color-bg-card` |
-| Text | `--color-text`, `--color-text-muted`, `--color-text-dim` |
+| Group       | Key variables                                                                |
+| ----------- | ---------------------------------------------------------------------------- |
+| Backgrounds | `--color-bg`, `--color-bg-1`, `--color-bg-2`, `--color-bg-card`              |
+| Text        | `--color-text`, `--color-text-muted`, `--color-text-dim`                     |
 | Gold accent | `--color-gold`, `--color-gold-lt`, `--color-gold-dim`, `--color-gold-border` |
-| Blue accent | `--color-blue`, `--color-blue-lt`, `--color-blue-dim` |
-| Error | `--color-error` |
-| Borders | `--border-subtle` (4% white), `--border-subtle-8` (8% white) |
-| Gradients | `--g-gold`, `--g-blue`, `--g-card` |
-| Animation | `--ease`, `--transition` (0.2s), `--transition-md` (0.45s) |
-| Layout | `--container-max` (1240px), `--container-px` (24px) |
-| Radius | `--radius-s` / `--radius-m` / `--radius-l` / `--radius-xl` / `--radius-pill` |
+| Blue accent | `--color-blue`, `--color-blue-lt`, `--color-blue-dim`                        |
+| Error       | `--color-error`                                                              |
+| Borders     | `--border-subtle` (4% white), `--border-subtle-8` (8% white)                 |
+| Gradients   | `--g-gold`, `--g-blue`, `--g-card`                                           |
+| Animation   | `--ease`, `--transition` (0.2s), `--transition-md` (0.45s)                   |
+| Layout      | `--container-max` (1240px), `--container-px` (24px)                          |
+| Radius      | `--radius-s` / `--radius-m` / `--radius-l` / `--radius-xl` / `--radius-pill` |
 
 ## Animation System
 
@@ -108,10 +108,10 @@ Scroll-reveal is driven by `useScrollReveal()` hook + CSS attribute selectors in
 
 **Attributes:**
 
-| Attribute | Values | Effect |
-| --- | --- | --- |
-| `data-a` | `up` / `left` / `right` / `scale` | Enter direction |
-| `data-d` | `1` – `8` | Stagger delay (80ms increments) |
+| Attribute | Values                            | Effect                          |
+| --------- | --------------------------------- | ------------------------------- |
+| `data-a`  | `up` / `left` / `right` / `scale` | Enter direction                 |
+| `data-d`  | `1` – `8`                         | Stagger delay (80ms increments) |
 
 The hook uses `IntersectionObserver` with `threshold: 0.1` and `rootMargin: 0px 0px -48px 0px`. Once an element enters the viewport, `data-vis="1"` is set and the observer stops watching it — the animation fires exactly once.
 
@@ -139,9 +139,7 @@ This project uses **React Router with `BrowserRouter`**, so direct URL access to
 
 ```json
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
 ```
 
@@ -160,4 +158,4 @@ vercel
 
 ## Author
 
-**Vitalii Shchukin** — [dev@nowtechstart.com](mailto:dev@nowtechstart.com)
+**Vitalii Shchukin** — [vitalii.shchukin.dev@gmail.com](mailto:vitalii.shchukin.dev@gmail.com)
