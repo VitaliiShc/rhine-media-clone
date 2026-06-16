@@ -23,8 +23,8 @@ const COMPANY_LINKS = [
   { label: 'About Rhine Media', href: '#why-us' },
   { label: 'Contact Us', href: '/contact', internal: true },
   { label: 'Partners', href: '#partners' },
-  { label: 'Terms of Service', href: '#' },
-  { label: 'Privacy Policy', href: '#' },
+  { label: 'Terms of Service', href: '/terms', internal: true },
+  { label: 'Privacy Policy', href: '/privacy-policy', internal: true },
 ];
 
 const SOCIALS = [
@@ -83,8 +83,8 @@ export function Footer() {
           <span className={styles.domain}>rhine-media.com</span>
         </p>
         <nav className={styles.legal} aria-label="Legal">
-          <a href="#" className={styles.legalLink}>Terms</a>
-          <a href="#" className={styles.legalLink}>Privacy</a>
+          <Link to="/terms" className={styles.legalLink}>Terms</Link>
+          <Link to="/privacy-policy" className={styles.legalLink}>Privacy</Link>
           <Link to="/contact" className={styles.legalLink}>Contact</Link>
         </nav>
       </div>

@@ -56,8 +56,8 @@ export function Benefits() {
         </div>
 
         <div className={styles.cards} data-a="right" data-d="2">
-          {CARDS.map(({ ico, title, body }, idx) => (
-            <div key={title} className={clsx(styles.fc, idx === 1 && styles.fcDown, idx === 3 && styles.fcUp)}>
+          {CARDS.map(({ ico, title, body }) => (
+            <div key={title} className={styles.fc}>
               <div className={styles.fcIco}>{ico}</div>
               <h4 className={styles.fcTitle}>{title}</h4>
               <p className={styles.fcBody}>{body}</p>

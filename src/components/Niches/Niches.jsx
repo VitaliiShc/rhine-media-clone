@@ -22,7 +22,7 @@ export function Niches() {
         <p className="sec-sub">Deep expertise across the highest-performing verticals in performance marketing.</p>
       </div>
 
-      <div className={styles.grid}>
+      <div className={styles.nicheList}>
         {VERTICALS.map(({ emoji, name, desc, pill }, idx) => (
           <div key={name} className={styles.card} data-a="up" data-d={String((idx % 4) + 1)}>
             <span className={styles.emoji}>{emoji}</span>

@@ -93,7 +93,7 @@
 .navRight {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
@@ -103,20 +103,28 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 10px 20px;
+  padding: 14px 28px;
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: var(--fs-btn);
   font-weight: var(--fw-bold);
   letter-spacing: 0.01em;
   white-space: nowrap;
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
-.btnGhost:hover,
+.btnGhost:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--color-gold-border);
+  color: var(--color-gold-lt);
+  transform: translateY(-2px);
+}
+
 .btnPrimary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
+  box-shadow: 0 14px 38px var(--color-gold-glow);
 }
 
 /* Ghost — hidden on mobile */
@@ -148,7 +156,9 @@
   height: 2px;
   background-color: var(--color-text);
   border-radius: 2px;
-  transition: transform var(--transition), opacity var(--transition);
+  transition:
+    transform var(--transition),
+    opacity var(--transition);
 }
 
 /* Mobile menu — fullscreen overlay */

@@ -66,13 +66,6 @@
   transition: var(--transition-md);
 }
 
-.fcDown {
-  margin-top: 28px;
-}
-
-.fcUp {
-  margin-top: -28px;
-}
 
 .fc:hover {
   border-color: var(--color-gold-border);

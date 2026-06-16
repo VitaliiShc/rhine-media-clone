@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import arrowIcon from '../../assets/icons/arrow.svg';
 import styles from './ContactForm.module.css';
@@ -52,7 +53,7 @@ export function ContactForm() {
   return (
     <form className={styles.form} onSubmit={handleFormSubmit} noValidate>
 
-      <div className={styles.row}>
+      <div className={styles.nameFields}>
         <label className={styles.field}>
           <span className={styles.label}>First Name *</span>
           <input
@@ -172,9 +173,9 @@ export function ContactForm() {
         />
         <label className={styles.consentLabel} htmlFor="consent">
           I agree to the{' '}
-          <a href="#" className={styles.consentLink}>Privacy Policy</a>
+          <Link to="/privacy-policy" className={styles.consentLink}>Privacy Policy</Link>
           {' '}and{' '}
-          <a href="#" className={styles.consentLink}>Terms of Service</a>.
+          <Link to="/terms" className={styles.consentLink}>Terms of Service</Link>.
           {' '}I consent to Rhine Media processing my data to respond to this enquiry.
         </label>
       </div>

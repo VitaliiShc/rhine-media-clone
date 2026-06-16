@@ -26,7 +26,7 @@ export function Channels() {
         </p>
       </div>
 
-      <div className={styles.grid}>
+      <div className={styles.channelList}>
         {SOURCES.map(({ ico, name, sub }, idx) => (
           <div
             key={name}

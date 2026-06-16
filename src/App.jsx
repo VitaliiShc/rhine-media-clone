@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Home, Contact } from './pages';
+import { Home, Contact, Terms, Privacy } from './pages';
 
 export default function App() {
   return (
@@ -7,6 +7,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/privacy-policy" element={<Privacy />} />
       </Routes>
     </BrowserRouter>
   );

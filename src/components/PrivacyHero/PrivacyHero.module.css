@@ -1,0 +1,17 @@
+.pageHero {
+  background: var(--color-bg-1);
+  padding: 140px max(var(--container-px), calc((100% - var(--container-max)) / 2)) 90px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.heroH1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+
+.heroDate {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+}

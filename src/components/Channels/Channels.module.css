@@ -2,7 +2,7 @@
   background: var(--color-bg-1);
 }
 
-.grid {
+.channelList {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
@@ -25,7 +25,6 @@
 .card:hover {
   border-color: var(--color-blue-lt);
   background: var(--color-bg-card-h);
-  transform: translateY(-5px);
   box-shadow: 0 14px 36px rgba(62, 114, 236, 0.14);
 }
 
@@ -54,7 +53,7 @@
 }
 
 @media (min-width: 1024px) {
-  .grid {
+  .channelList {
     grid-template-columns: repeat(4, 1fr);
   }
 }
