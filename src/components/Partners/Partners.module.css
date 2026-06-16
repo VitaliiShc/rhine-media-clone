@@ -1,1 +1,70 @@
-/* Partners styles */
+.partners {
+  background: var(--color-bg);
+  padding: 88px 0;
+  overflow: hidden;
+}
+
+.header {
+  max-width: var(--container-max);
+  margin: 0 auto 44px;
+  padding: 0 var(--container-px);
+}
+
+.marqueeWrap {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 20px;
+  animation: roll 32s linear infinite;
+  width: max-content;
+}
+
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes roll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.chip:hover {
+  border-color: var(--color-gold-border);
+  background: var(--color-bg-card-h);
+}
+
+.chipIco {
+  width: 22px;
+  height: 22px;
+  background: var(--color-gold-dim);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.chipName {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-muted);
+}
