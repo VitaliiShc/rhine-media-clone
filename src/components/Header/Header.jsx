@@ -65,7 +65,7 @@ export function Header() {
                 aria-label="Open menu"
                 aria-expanded={menuOpen}
               >
-                <span /><span /><span />
+                <span className={styles.hamBar} /><span className={styles.hamBar} /><span className={styles.hamBar} />
               </button>
             </div>
 

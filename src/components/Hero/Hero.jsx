@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import arrowIcon from '../../assets/icons/arrow.svg';
 import styles from './Hero.module.css';
 
 const KPIS = [
@@ -63,9 +64,7 @@ export function Hero() {
             <div className={styles.heroActions} data-a="up" data-d="3">
               <Link to="/contact" className="btn btn-primary">
                 Start Cooperation
-                <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
-                  <path d="M1 6.5h11M6.5 1.5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <img src={arrowIcon} width={13} height={13} alt="" aria-hidden="true" />
               </Link>
               <Link to="/contact" className="btn btn-ghost">Get in Touch</Link>
             </div>

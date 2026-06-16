@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import arrowIcon from '../../assets/icons/arrow.svg';
 import styles from './CTA.module.css';
 
 export function CTA() {
@@ -9,8 +10,8 @@ export function CTA() {
 
         <div className={clsx('eyebrow', styles.eyebrowCenter)}>Let&rsquo;s Scale Together</div>
 
-        <h2>Ready to <span className="text-gold">Maximize</span> Your ROI?</h2>
-        <p>
+        <h2 className={styles.ctaTitle}>Ready to <span className="text-gold">Maximize</span> Your ROI?</h2>
+        <p className={styles.ctaDesc}>
           Join the brands and affiliate partners who trust Rhine Media to deliver
           performance at scale, in every major GEO.
         </p>
@@ -18,9 +19,7 @@ export function CTA() {
         <div className={styles.btns}>
           <Link to="/contact" className="btn btn-primary">
             Start Cooperation
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
-              <path d="M1 6.5h11M6.5 1.5l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img src={arrowIcon} width={13} height={13} alt="" aria-hidden="true" />
           </Link>
           <Link to="/contact" className="btn btn-gold-outline">Get in Touch</Link>
         </div>

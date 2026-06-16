@@ -41,7 +41,9 @@ function FooterCol({ title, links }) {
       <ul className={styles.colLinks}>
         {links.map(({ label, href, internal }) => (
           <li key={label}>
-            {internal ? <Link to={href}>{label}</Link> : <a href={href}>{label}</a>}
+            {internal
+              ? <Link to={href} className={styles.colLink}>{label}</Link>
+              : <a href={href} className={styles.colLink}>{label}</a>}
           </li>
         ))}
       </ul>
@@ -81,9 +83,9 @@ export function Footer() {
           <span className={styles.domain}>rhine-media.com</span>
         </p>
         <nav className={styles.legal} aria-label="Legal">
-          <a href="#">Terms</a>
-          <a href="#">Privacy</a>
-          <Link to="/contact">Contact</Link>
+          <a href="#" className={styles.legalLink}>Terms</a>
+          <a href="#" className={styles.legalLink}>Privacy</a>
+          <Link to="/contact" className={styles.legalLink}>Contact</Link>
         </nav>
       </div>
 

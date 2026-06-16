@@ -1,12 +1,17 @@
+import clsx from 'clsx';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 import { Header, Footer, ContactForm } from '../../components';
+import { FAQ } from '../../components/FAQ';
 import styles from './Contact.module.css';
 
 const INFO_ITEMS = [
-  { ico: '✉', label: 'Email', val: 'contact@rhine-media.com', href: 'mailto:contact@rhine-media.com' },
-  { ico: '✈', label: 'Telegram', val: '@rhine_media', href: 'https://t.me/rhine_media' },
-  { ico: '⏱', label: 'Response Time', val: 'Within 24 hours', href: null },
+  { ico: '✈', label: 'Telegram', val: '@rhinemedia', href: 'https://t.me/rhinemedia', external: true },
+  { ico: '✉️', label: 'Email', val: 'hello@rhine-media.com', href: 'mailto:hello@rhine-media.com', external: false },
+  { ico: '💼', label: 'Business Hours', val: 'Mon – Fri · 09:00 – 20:00 CET', href: null },
+  { ico: '⚡', label: 'Response Time', val: 'Typically within 2–4 business hours', href: null },
 ];
+
+const CHANNELS = ['Skype', 'WhatsApp', 'LinkedIn'];
 
 export function Contact() {
   useScrollReveal();
@@ -14,43 +19,78 @@ export function Contact() {
     <>
       <Header />
       <main>
-        <section className={styles.hero}>
+
+        <section className={styles.pageHero}>
           <div className="sec-center" data-a="up">
             <div className="eyebrow">Get in Touch</div>
-            <h1 className={styles.heroH1}>Start <span className="text-gold">Scaling</span> Today</h1>
-            <p className="sec-sub">Tell us about your goals and our team will reach out within 24 hours.</p>
+            <h1 className={styles.heroH1}>
+              Contact <span className="text-gold">Rhine Media</span>
+            </h1>
+            <p className="sec-sub">
+              Ready to start? Have a question? Our team responds within 24 hours.
+            </p>
           </div>
         </section>
 
-        <section className={styles.main}>
-          <div data-a="left">
-            <h2 className={styles.infoTitle}>Let's Talk Performance</h2>
-            <p className={styles.infoDesc}>
-              Whether you're an advertiser, affiliate, or media buyer — we build partnerships built on scale and ROI.
+        <section className={styles.pageBody} id="contact-form">
+
+          <div className={styles.contactIntro} data-a="left">
+            <h3 className={styles.introTitle}>
+              Let&rsquo;s Build Something<br />
+              <span className="text-gold">Profitable Together</span>
+            </h3>
+            <p className={styles.introDesc}>
+              Whether you&rsquo;re an advertiser looking to scale your offers, an affiliate network
+              seeking a reliable buying team, or a brand ready to expand globally — we want to hear from you.
             </p>
-            <div className={styles.infoList}>
-              {INFO_ITEMS.map(({ ico, label, val, href }) => (
-                <div key={label} className={styles.infoItem}>
-                  <div className={styles.infoIco}>{ico}</div>
-                  <div>
-                    <div className={styles.infoLabel}>{label}</div>
-                    {href
-                      ? <a href={href} className={styles.infoVal}>{val}</a>
-                      : <span className={styles.infoVal}>{val}</span>
-                    }
+
+            <div className={styles.cinfoList}>
+              {INFO_ITEMS.map(({ ico, label, val, href, external }) => (
+                <div key={label} className={styles.cinfoItem}>
+                  <div className={styles.cinfoIco}>{ico}</div>
+                  <div className={styles.cinfoText}>
+                    <h4 className={styles.cinfoLabel}>{label}</h4>
+                    {href ? (
+                      <a
+                        href={href}
+                        className={styles.cinfoVal}
+                        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      >
+                        {val}
+                      </a>
+                    ) : (
+                      <p className={styles.cinfoVal}>{val}</p>
+                    )}
                   </div>
                 </div>
               ))}
             </div>
-          </div>
 
-          <div data-a="right">
-            <div className={styles.formCard}>
-              <div className="eyebrow">Contact Form</div>
-              <ContactForm />
+            <p className={styles.channelsLabel}>Also available on</p>
+            <div className={styles.channelBtns}>
+              {CHANNELS.map(ch => (
+                <a key={ch} href="#" className={clsx('btn', 'btn-ghost', styles.channelBtn)}>{ch}</a>
+              ))}
+            </div>
+
+            <div className={styles.mapStub}>
+              <div className={styles.mapGrid} />
+              <div className={styles.mapLabel}>
+                <div className={styles.mapPin} />
+                <span>Rhine Media · Global Operations</span>
+              </div>
             </div>
           </div>
+
+          <div className={styles.formCard} data-a="right">
+            <h3 className={styles.formTitle}>Send Us a Message</h3>
+            <ContactForm />
+          </div>
+
         </section>
+
+        <FAQ />
+
       </main>
       <Footer />
     </>

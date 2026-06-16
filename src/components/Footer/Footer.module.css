@@ -91,13 +91,13 @@
   gap: 11px;
 }
 
-.colLinks a {
+.colLink {
   font-size: var(--fs-btn);
   color: var(--color-text-muted);
   transition: color var(--transition);
 }
 
-.colLinks a:hover {
+.colLink:hover {
   color: var(--color-gold-lt);
 }
 
@@ -125,13 +125,13 @@
   gap: 22px;
 }
 
-.legal a {
+.legalLink {
   font-size: var(--fs-xs);
   color: var(--color-text-dim);
   transition: color var(--transition);
 }
 
-.legal a:hover {
+.legalLink:hover {
   color: var(--color-text-muted);
 }
 

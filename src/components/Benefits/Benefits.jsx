@@ -47,8 +47,8 @@ export function Benefits() {
               <div key={title} className={styles.checkItem} data-a="left" data-d={String(idx + 2)}>
                 <div className={styles.chk}>✓</div>
                 <div className={styles.chkBody}>
-                  <h4>{title}</h4>
-                  <p>{body}</p>
+                  <h4 className={styles.chkTitle}>{title}</h4>
+                  <p className={styles.chkDesc}>{body}</p>
                 </div>
               </div>
             ))}

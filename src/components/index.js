@@ -7,3 +7,4 @@ export { Benefits } from './Benefits/Benefits';
 export { CTA } from './CTA/CTA';
 export { Footer } from './Footer/Footer';
 export { ContactForm } from './ContactForm/ContactForm';
+export { FAQ } from './FAQ/FAQ';

@@ -25,14 +25,14 @@
   pointer-events: none;
 }
 
-.ctaBox h2 {
+.ctaTitle {
   font-size: clamp(1.9rem, 3.5vw, 2.85rem);
   font-weight: var(--fw-extrabold);
   letter-spacing: -0.025em;
   margin-bottom: 16px;
 }
 
-.ctaBox p {
+.ctaDesc {
   font-size: 1.02rem;
   color: var(--color-text-muted);
   max-width: 480px;
