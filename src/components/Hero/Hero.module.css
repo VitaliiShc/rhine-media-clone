@@ -120,7 +120,7 @@
 }
 
 .heroHl {
-  background: linear-gradient(120deg, #c9973b 0%, #ecc86a 45%, #c9973b 100%);
+  background: linear-gradient(120deg, var(--color-gold) 0%, var(--color-gold-lt) 45%, var(--color-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

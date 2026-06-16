@@ -24,6 +24,12 @@ const BUDGETS = [
 ];
 
 const REQUIRED_TEXT_FIELDS = ['fname', 'lname', 'email', 'vertical', 'message'];
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function validateField(name, value) {
+  if (name === 'email') return !value.trim() || !EMAIL_RE.test(value.trim());
+  return REQUIRED_TEXT_FIELDS.includes(name) && !value.trim();
+}
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);
@@ -36,14 +42,18 @@ export function ContactForm() {
   function handleFieldChange(evt) {
     const { name, value, type, checked } = evt.target;
     setForm(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
-    if (errors[name]) setErrors(prev => ({ ...prev, [name]: false }));
+    if (!(name in errors)) return;
+    setErrors(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? !checked : validateField(name, value),
+    }));
   }
 
   function handleFormSubmit(evt) {
     evt.preventDefault();
     const newErrors = {};
     REQUIRED_TEXT_FIELDS.forEach(field => {
-      if (!form[field].trim()) newErrors[field] = true;
+      if (validateField(field, form[field])) newErrors[field] = true;
     });
     if (!form.consent) newErrors.consent = true;
     if (Object.keys(newErrors).length > 0) {
@@ -170,14 +180,20 @@ export function ContactForm() {
       </label>
 
       <div className={styles.consent}>
-        <input
-          className={clsx(styles.consentChk, errors.consent && styles.consentChkError)}
-          type="checkbox"
-          id="consent"
-          name="consent"
-          checked={form.consent}
-          onChange={handleFieldChange}
-        />
+        <div className={clsx(styles.consentChk, errors.consent && styles.consentChkError)}>
+          <input
+            type="checkbox"
+            id="consent"
+            name="consent"
+            checked={form.consent}
+            onChange={handleFieldChange}
+          />
+          {form.consent && (
+            <svg viewBox="0 0 12 10" fill="none" aria-hidden="true">
+              <path d="M1.5 5L4.5 8L10.5 1.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          )}
+        </div>
         <label className={clsx(styles.consentLabel, errors.consent && styles.consentLabelError)} htmlFor="consent">
           I agree to the{' '}
           <Link to="/privacy-policy" className={styles.consentLink}>Privacy Policy</Link>

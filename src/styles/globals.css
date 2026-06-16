@@ -232,7 +232,7 @@ h1, h2, h3, h4, h5 {
 [data-a="right"] { transform: translateX(28px); }
 [data-a="scale"] { transform: scale(0.92); }
 
-[data-a].vis {
+[data-a][data-vis] {
   opacity: 1;
   transform: none;
 }

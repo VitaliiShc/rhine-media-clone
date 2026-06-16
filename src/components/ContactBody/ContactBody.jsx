@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { ContactForm } from '../ContactForm/ContactForm';
+import { ContactForm } from '..';
 import styles from './ContactBody.module.css';
 
 const INFO_ITEMS = [
@@ -37,7 +37,7 @@ export function ContactBody() {
   return (
     <section className={styles.contactBody} id="contact-form">
       <div className="container">
-        <div className={styles.contactLayout}>
+        <div className={styles.contactColumns}>
 
           <div data-a="left">
             <h3 className={styles.introTitle}>

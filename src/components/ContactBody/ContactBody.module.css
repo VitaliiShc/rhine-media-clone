@@ -3,7 +3,7 @@
   padding: 80px 0;
 }
 
-.contactLayout {
+.contactColumns {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 64px;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 960px) {
-  .contactLayout {
+  .contactColumns {
     grid-template-columns: 1fr;
   }
 }

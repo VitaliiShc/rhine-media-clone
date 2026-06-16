@@ -26,7 +26,7 @@
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   color: var(--color-text-muted);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
 }
 
 .input {
@@ -63,6 +63,11 @@
 
 .inputError:hover {
   border-color: var(--color-error);
+}
+
+.inputError:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(232, 112, 96, 0.15);
 }
 
 .select {
@@ -118,6 +123,7 @@
 }
 
 .consentChk {
+  position: relative;
   width: 30px;
   height: 30px;
   margin-top: 3px;
@@ -125,30 +131,43 @@
   background: var(--color-bg-2);
   border: 1px solid var(--border-subtle-8);
   border-radius: var(--radius-s);
-  outline: none;
-  -webkit-appearance: none;
-  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   transition:
     border-color var(--transition),
-    background var(--transition),
+    background-color var(--transition),
     box-shadow var(--transition);
+}
+
+.consentChk input[type="checkbox"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+
+.consentChk svg {
+  color: var(--color-gold);
+  width: 14px;
+  height: 12px;
+  pointer-events: none;
+}
+
+.consentChk:has(:checked) {
+  background-color: var(--color-gold-dim);
+  border-color: var(--color-gold-border);
 }
 
 .consentChk:hover {
   border-color: rgba(255, 255, 255, 0.14);
 }
 
-.consentChk:checked {
-  background: var(--color-gold-dim);
-  border-color: var(--color-gold-border);
-  background-image: url('../../assets/icons/checkmark.svg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 12px 10px;
-}
-
-.consentChk:focus {
+.consentChk:has(:focus-visible) {
   border-color: var(--color-gold);
   box-shadow: 0 0 0 3px rgba(201, 151, 59, 0.1);
 }
@@ -159,6 +178,11 @@
 
 .consentChkError:hover {
   border-color: var(--color-error);
+}
+
+.consentChkError:has(:focus-visible) {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(232, 112, 96, 0.15);
 }
 
 .consentLabel {
